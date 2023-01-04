@@ -1,23 +1,18 @@
 from datetime import datetime
 import schedule
+import time
 import os
 import detect
 
 path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
 
-def read_cntr_number_region(video_path):
-    weight = "./runs/train/TruckNumber_yolov5s_results34/weights/best.pt" # educated model
-    video = video_path
-    # video = "./Test_Video/video5.mp4"
-    conf = 0.5
-    detect.run(weights=weight, source=video, conf_thres=conf)
 
-def job(): # Run at 00:00
+def job():  # Run at 00:00
     now = datetime.now()
-    folder_name = str(now.strftime("%m")) + str(now.strftime("%d")) + str(now.strftime("%Y")) # 12312022
-    if not os.path.isdir(str(path + "/" + folder_name)):
-        os.mkdir(path + "/" + folder_name) # create folder on path
-    path_to_watch = path + "/" + folder_name # "C:/Users/ngltr/OneDrive/Desktop/Docker/12312022"
+    folder_name = str(now.strftime("%m")) + str(now.strftime("%d")) + str(now.strftime("%Y"))  # 20230101
+    if not os.path.isdir(path + "/" + folder_name):
+        os.mkdir(path + "/" + folder_name)  # create folder on path
+    path_to_watch = path + "/" + folder_name  # "C:/Users/ngltr/OneDrive/Desktop/Docker/12312022"
     old = os.listdir(path_to_watch)
     print("Ready to Run")
     while True:
@@ -37,8 +32,17 @@ def job(): # Run at 00:00
         else:
             continue
 
+
+def read_cntr_number_region(video_path):
+    weight = "./runs/train/TruckNumber_yolov5s_results34/weights/best.pt" # educated model
+    video = video_path
+    # video = "./Test_Video/video5.mp4"
+    conf = 0.5
+    detect.run(weights=weight, source=video, conf_thres=conf)
+
+
 # schedule.every().day.at("13:55").do(job) # Set schedule at 00:00 everyday
 schedule.every(1).seconds.do(job)
 
-while True: # Run from here start scheduler
+while True:  # Run from here start scheduler
     schedule.run_pending()
