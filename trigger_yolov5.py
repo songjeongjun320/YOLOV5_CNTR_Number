@@ -11,12 +11,12 @@ ACCESS_KEY = 'AKIAR76DGZNKHERXNGH4'
 SECRET_KEY = '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'
 
 
-def send_img_to_s3():
-    s3 = boto3.client('s3',
-              region_name='us-west-2',
-              aws_access_key_id=ACCESS_KEY,
-              aws_secret_access_key=SECRET_KEY)
-    s3.upload_file('C:/Users/ngltr/Downloads/yolov5-master/yolov5-master/runs/detect/202301041/crops/Container_Number/CKOUT-153746-153806.jpg', 'ngl-yms', 'test.jpg')
+# def send_img_to_s3():
+#     s3 = boto3.client('s3',
+#               region_name='us-west-2',
+#               aws_access_key_id=ACCESS_KEY,
+#               aws_secret_access_key=SECRET_KEY)
+#     s3.upload_file('C:/Users/ngltr/Downloads/yolov5-master/yolov5-master/runs/detect/202301041/crops/Container_Number/CKOUT-153746-153806.jpg', 'ngl-yms', 'test.jpg')
 
 
 def job():  # Run at 00:00
@@ -54,8 +54,8 @@ def read_cntr_number_region(video_path):
     detect.run(weights=weight, source=video, conf_thres=conf)
 
 
-send_img_to_s3()
-time.sleep(10000)
+# send_img_to_s3()
+# time.sleep(10000)
 
 # schedule.every().day.at("13:55").do(job) # Set schedule at 00:00 everyday
 schedule.every(1).seconds.do(job)
