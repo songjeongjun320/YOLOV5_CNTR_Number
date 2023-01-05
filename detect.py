@@ -53,7 +53,7 @@ from utils.torch_utils import select_device, smart_inference_mode
 
 def f_name():
     now = datetime.datetime.now()
-    dateformat = '%Y%m%d'
+    dateformat = '%m%d%Y'
     name=now.strftime(dateformat)
     return name
 
