@@ -191,8 +191,8 @@ def run(
                     windows.append(p)
                     cv2.namedWindow(str(p), cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)  # allow window resize (Linux)
                     cv2.resizeWindow(str(p), im0.shape[1], im0.shape[0])
-                cv2.imshow(str(p), im0)
-                cv2.waitKey(1)  # 1 millisecond
+                # cv2.imshow(str(p), im0)  # Showing the video detecting process
+                cv2.waitKey(1)  # 1 milli second
 
             # Save results (image with detections)
             if save_img:
@@ -205,8 +205,8 @@ def run(
                             vid_writer[i].release()  # release previous video writer
                         if vid_cap:  # video
                             fps = vid_cap.get(cv2.CAP_PROP_FPS)
-                            w = int(vid_cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                            h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                            w = int(vid_cap.get(cv2.CAP_PROP_FRAME_WIDTH)) - 3000
+                            h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT)) - 3000
                         else:  # stream
                             fps, w, h = 30, im0.shape[1], im0.shape[0]
                         save_path = str(Path(save_path).with_suffix('.mp4'))  # force *.mp4 suffix on results videos
