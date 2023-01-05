@@ -6,6 +6,7 @@ import detect
 import boto3  # library to send images to S3
 import s3transfer
 
+# path = 'C:/Users/ngl/Desktop/Docker'
 path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
 ACCESS_KEY = 'AKIAR76DGZNKHERXNGH4'
 SECRET_KEY = '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'
@@ -44,7 +45,6 @@ def job():  # Run at 00:00
                     continue
         else:
             continue
-
 
 def read_cntr_number_region(video_path):
     weight = "./runs/train/TruckNumber_yolov5s_results34/weights/best.pt"  # educated model
