@@ -20,14 +20,18 @@ SECRET_KEY = 'DOmExhYrrii+8sGMmkxba1du6BaHDwCJi+ikAyUX'
 
 
 def job():  # Run at 00:00
-    now = datetime.now()
-    folder_name = str(now.strftime("%m")) + str(now.strftime("%d")) + str(now.strftime("%Y"))  # 20230101
+    dateformat = "%m%d%Y"
+    past = folder_name = datetime.now().strftime(dateformat)  # 01012023
     if not os.path.isdir(path + "/" + folder_name):
         os.mkdir(path + "/" + folder_name)  # create folder on path
     path_to_watch = path + "/" + folder_name  # "C:/Users/ngltr/OneDrive/Desktop/Docker/12312022"
     old = os.listdir(path_to_watch)
     print("Ready to Run")
     while True:
+        now = datetime.now().strftime(dateformat)
+        if now != past:
+            print("Date_Change : ", now)
+            break
         new = os.listdir(path_to_watch)
         if len(new) > len(old):
             newfile = list(set(new) - set(old))
@@ -38,6 +42,7 @@ def job():  # Run at 00:00
                 extension = os.path.splitext(path_to_watch + "/" + newfile[n])[1]
                 if extension == ".mp4":
                     video_path = path_to_watch + "/" + str(newfile[n])
+                    time.sleep(1)
                     read_cntr_number_region(video_path)
                     # print("Video_Path : ", video_path)
                 else:
