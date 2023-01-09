@@ -51,11 +51,11 @@ from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import select_device, smart_inference_mode
 
 
-def f_name():
-    now = datetime.datetime.now()
-    dateformat = '%m%d%Y'
-    name=now.strftime(dateformat)
-    return name
+# def f_name():
+#     now = datetime.datetime.now()
+#     dateformat = '%m%d%Y'
+#     name=now.strftime(dateformat)
+#     return name
 
 
 @smart_inference_mode()
@@ -79,7 +79,7 @@ def run(
         visualize=False,  # visualize features
         update=False,  # update all models
         project=ROOT / 'runs/detect',  # save results to project/name
-        name=f_name(),  # save results to project/name
+        name='exp',  # save results to project/name
         exist_ok=False,  # existing project/name ok, do not increment
         line_thickness=3,  # bounding box thickness (pixels)
         hide_labels=False,  # hide labels

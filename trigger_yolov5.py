@@ -3,20 +3,9 @@ import schedule
 import time
 import os
 import detect
-import boto3  # library to send images to S3
 
 # path = 'C:/Users/ngl/Desktop/Docker'
 path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
-ACCESS_KEY = 'AKIAR76DGZNKHERXNGH4'
-SECRET_KEY = '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'
-
-
-# def send_img_to_s3():
-#     s3 = boto3.client('s3',
-#               region_name='us-west-2',
-#               aws_access_key_id=ACCESS_KEY,
-#               aws_secret_access_key=SECRET_KEY)
-#     s3.upload_file('C:/Users/ngltr/Downloads/yolov5-master/yolov5-master/runs/detect/202301041/crops/Container_Number/CKOUT-153746-153806.jpg', 'ngl-yms', 'test.jpg')
 
 
 def job():  # Run at 00:00
@@ -43,7 +32,7 @@ def job():  # Run at 00:00
                 if extension == ".mp4":
                     video_path = path_to_watch + "/" + str(newfile[n])
                     time.sleep(1)
-                    read_cntr_number_region(video_path)
+                    read_cntr_number_region(video_path, folder_name)
                     # print("Video_Path : ", video_path)
                 else:
                     continue
@@ -51,12 +40,12 @@ def job():  # Run at 00:00
             continue
 
 
-def read_cntr_number_region(video_path):
+def read_cntr_number_region(video_path, folder_name):
     weight = "./runs/train/TruckNumber_yolov5s_results34/weights/best.pt"  # educated model
     video = video_path
     # video = "./Test_Video/video5.mp4"
     conf = 0.5
-    detect.run(weights=weight, source=video, conf_thres=conf)
+    detect.run(weights=weight, source=video, conf_thres=conf, name=folder_name)
 
 
 # send_img_to_s3()
