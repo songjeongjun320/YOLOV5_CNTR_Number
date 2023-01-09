@@ -19,6 +19,7 @@ def job():  # Run at 00:00
     while True:
         now = datetime.now().strftime(dateformat)
         if now != past:
+
             print("Date_Change : ", now)
             break
         new = os.listdir(path_to_watch)
