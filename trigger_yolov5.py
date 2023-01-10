@@ -19,7 +19,7 @@ def job():  # Run at 00:00
         os.mkdir(path + "/" + folder_name)  # create folder on path
     path_to_watch = path + "/" + folder_name  # "C:/Users/ngltr/OneDrive/Desktop/Docker/12312022"
     old = os.listdir(path_to_watch)
-    print("Ready to Run")
+    print("Ready to Run - YOLO_Engine")
     while True:
         now = datetime.now().strftime(dateformat)
         if now != past:
