@@ -4,8 +4,12 @@ import time
 import os
 import detect
 
+# path -> CCTV Video downloaded folder
 # path = 'C:/Users/ngl/Desktop/Docker'
-path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
+# path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
+print(" --- Find CCTV Video downloaded folder --- " )
+print("Path_to_wacth_CCTV : ")
+path = str(input())
 
 
 def job():  # Run at 00:00
@@ -19,7 +23,6 @@ def job():  # Run at 00:00
     while True:
         now = datetime.now().strftime(dateformat)
         if now != past:
-
             print("Date_Change : ", now)
             break
         new = os.listdir(path_to_watch)
