@@ -5,8 +5,9 @@ import os
 import detect
 
 # path -> CCTV Video downloaded folder
-# path = 'C:/Users/ngl/Desktop/Docker'
-# path = "C:/Users/ngltr/OneDrive/Desktop/Docker"
+
+print("\nC:\\Users\\ngltr\\OneDrive\\Desktop\\Docker")
+print("C:\\Users\\ngl\\Desktop\\Docker")
 print(" --- Find CCTV Video downloaded folder --- " )
 print("Path_to_wacth_CCTV : ")
 path = str(input())

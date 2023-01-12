@@ -20,6 +20,7 @@
 *.data
 *.json
 *.cfg
+*.spec
 !setup.cfg
 !cfg/yolov3*.cfg
 
@@ -27,6 +28,9 @@ storage.googleapis.com
 runs/*
 data/*
 data/images/*
+dist/*
+build/*
+
 # !data/*.yaml
 !data/hyps
 !data/scripts
