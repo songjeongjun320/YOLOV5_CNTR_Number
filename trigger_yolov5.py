@@ -10,8 +10,8 @@ print("\nC:\\Users\\ngltr\\OneDrive\\Desktop\\Docker")
 print("C:\\Users\\ngl\\Desktop\\Docker")
 print(" --- Find CCTV Video downloaded folder --- " )
 print("Path_to_wacth_CCTV : ")
-print(datetime.now())
 path = str(input())
+
 
 def job():  # Run at 00:00
     dateformat = "%m%d%Y"
@@ -51,11 +51,8 @@ def read_cntr_number_region(video_path, folder_name):
     # video = "./Test_Video/video5.mp4"
     conf = 0.5
     detect.run(weights=weight, source=video, conf_thres=conf, name=folder_name)
-    print("Detected_ Time : ", time.datetime )
-
-
-# send_img_to_s3()
-# time.sleep(10000)
+    print("Detected_ Time : ", datetime.now() )
+    
 
 # schedule.every().day.at("13:55").do(job) # Set schedule at 00:00 everyday
 schedule.every(1).seconds.do(job)
