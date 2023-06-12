@@ -48,4 +48,4 @@ seaborn>=0.11.0
 # roboflow
 # ultralytics  # HUB https://hub.ultralytics.com
 
-schedule~=1.1.0
+schedule~=1.2.0
