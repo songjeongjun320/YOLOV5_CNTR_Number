@@ -258,3 +258,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# Educated by Jun
+TruckNumber_yolov5s_results34/
