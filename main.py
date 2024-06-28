@@ -68,10 +68,12 @@ def read_cntr_number_region(video_path, folder_name):
 # Main script starts here
 
 # Define the path where the CCTV videos will be downloaded
-print("\nC:\\Users\\frank\\OneDrive\\Desktop\\Docker")
+print("\n\n=============================================================")
+print("C:\\Users\\frank\\OneDrive\\Desktop\\Docker")
 print("--- Find CCTV Video downloaded folder ---")
 print("Path to watch CCTV: ")
 path = input().strip()  # Get path from user input
+print("=============================================================")
 print("Ready to Run - YOLO_Engine")
 
 # Main loop to run the scheduler
